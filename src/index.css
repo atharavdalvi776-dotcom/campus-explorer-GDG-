@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-obsidian: #10120F;
+    --bg-charcoal: #191C17;
+    --text-ivory: #F3F0E7;
+    --color-lime: #D4FF55;
+    --color-forest: #234B38;
+    --color-olive: #727B52;
+    --color-stone: #A5A79A;
+  }
+
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #10120F;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #234B38;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #727B52;
+  }
+}
+
+/* Glassmorphism system */
+.glass-panel {
+  background: rgba(25, 28, 23, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(165, 167, 154, 0.14);
+}
+
+.glass-panel-hover {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .glass-panel-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 42px -12px rgba(0, 0, 0, 0.65), 0 0 24px -6px rgba(212, 255, 85, 0.12);
+    border-color: rgba(212, 255, 85, 0.3);
+  }
+}
+
+.glass-panel-subtle {
+  background: rgba(16, 18, 15, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(165, 167, 154, 0.1);
+}
+
+.glass-card {
+  background: rgba(25, 28, 23, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(165, 167, 154, 0.12);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .glass-card:hover {
+    background: rgba(30, 34, 28, 0.78);
+    border-color: rgba(212, 255, 85, 0.35);
+    transform: translateY(-5px);
+    box-shadow: 0 18px 38px -10px rgba(0, 0, 0, 0.65), 0 0 22px -6px rgba(212, 255, 85, 0.12);
+  }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .glass-card,
+  .glass-panel-hover,
+  button,
+  a,
+  img {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+.glass-ivory {
+  background: rgba(243, 240, 231, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(243, 240, 231, 0.15);
+}
+
+.glass-lime {
+  background: rgba(212, 255, 85, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 255, 85, 0.25);
+}
+
+/* Subtle architectural grid pattern */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(165, 167, 154, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(165, 167, 154, 0.04) 1px, transparent 1px);
+}
+
+/* Editorial line decorative */
+.editorial-line {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(212, 255, 85, 0.4) 0%, rgba(165, 167, 154, 0.15) 50%, transparent 100%);
+}
+
+/* Text stroke utility */
+.text-stroke-stone {
+  -webkit-text-stroke: 1px rgba(165, 167, 154, 0.3);
+  color: transparent;
+}
+
+/* Pulse animation for live campus indicator */
+@keyframes subtle-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.4;
+  }
+}
+
+.animate-subtle-pulse {
+  animation: subtle-pulse 2.2s infinite ease-in-out;
+}
+
